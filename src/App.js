@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { BrowserRouter } from "react-router-dom";
+import { HashRouter } from "react-router-dom";
 import { CSSTransition } from "react-transition-group";
 import AppRouter from "./components/AppRouter";
 import Drawer from "./components/Drawer/Drawer";
@@ -48,7 +48,7 @@ function App() {
     <AppContext.Provider
       value={{ cartItems, setCartItems, onAddToCart, onAddToOrders, orders }}
     >
-      <BrowserRouter>
+      <HashRouter>
         <Header onClickCart={() => setCartOpened(true)} />
         <CSSTransition
           classNames="show"
@@ -65,7 +65,7 @@ function App() {
           />
         </CSSTransition>
         <AppRouter />
-      </BrowserRouter>
+      </HashRouter>
     </AppContext.Provider>
   );
 }
