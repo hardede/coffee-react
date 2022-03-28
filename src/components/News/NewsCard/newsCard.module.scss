@@ -1,0 +1,51 @@
+.information_card {
+  width: 362px !important;
+  box-shadow: 40px 15px 136px rgba(0, 0, 0, 0.2);
+  transition: box-shadow 0.2s ease-in-out, transform 0.2s ease-in-out;
+  margin-bottom: 20px;
+  .card_info {
+    padding: 30px;
+    h3 {
+      margin-bottom: 10px;
+      font-family: "Josefin Sans", sans-serif;
+      font-weight: 600;
+      font-size: 32px;
+      line-height: 42px;
+    }
+
+    p {
+      margin-bottom: 20px;
+      font-size: 16px;
+      line-height: 25px;
+      opacity: 0.7;
+    }
+
+    button {
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 25px;
+      color: #ff4b32;
+      padding: 0;
+      border: none;
+      background-color: transparent;
+      cursor: pointer;
+      font-family: "Josefin Sans", sans-serif;
+    }
+  }
+}
+.information_card:hover {
+  transform: translateY(-5px);
+  transition: box-shadow 0.2s ease-in-out, transform 0.2s ease-in-out;
+  box-shadow: 11px 9px 13px 12px #d1d1d1;
+}
+
+@media (max-width: 760px) {
+  .information_card {
+    margin: 0 auto 20px auto;
+  }
+}
+@media (max-width: 410px) {
+  .information_card {
+    width: 290px !important;
+  }
+}

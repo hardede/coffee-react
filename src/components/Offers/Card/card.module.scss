@@ -1,0 +1,117 @@
+.card {
+  width: 345px !important;
+  margin: 0 20px 20px 20px;
+  .card_coffee {
+    height: 265px;
+  }
+
+  .card_price {
+    margin-top: 35px;
+    font-family: "Josefin Sans", sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 36px;
+    color: #0c0d0c;
+  }
+
+  .card_title {
+    margin-top: 10px;
+    font-family: "Josefin Sans", sans-serif;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 42px;
+  }
+
+  .card_subtitle {
+    margin-top: 15px;
+    width: 257px;
+    font-size: 16px;
+    line-height: 26px;
+    opacity: 0.6;
+  }
+
+  .card_counter {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+    .card_num {
+      display: grid;
+      grid-template-columns: 56px 58px;
+      border: 1px solid #000000;
+      border-radius: 2px;
+      .card_number {
+        padding: 12px 21px;
+        grid-row-start: 1;
+        grid-row-end: 3;
+        justify-self: center;
+        align-self: center;
+        font-family: "Roboto", sans-serif;
+        font-weight: 500;
+        font-size: 24px;
+        line-height: 31px;
+        color: #0c0d0c;
+        border-right: 1px solid #000000;
+      }
+      .card_increase {
+        font-size: 18px;
+        font-weight: 700;
+        font-family: "Josefin Sans", sans-serif;
+        border: none;
+        cursor: pointer;
+        border-bottom: 0.5px solid #000000;
+      }
+
+      .card_decrease {
+        font-size: 18px;
+        font-weight: 700;
+        font-family: "Josefin Sans", sans-serif;
+        cursor: pointer;
+        border: none;
+        border-top: 0.5px solid #000000;
+      }
+    }
+    .card_button {
+      padding: 15px 30px;
+      font-family: "Josefin Sans", sans-serif;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+      font-size: 18px;
+      line-height: 27px;
+      color: #fff;
+      background: #ff4b32;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .card_button:hover {
+      opacity: 0.8;
+    }
+  }
+}
+.card:hover {
+  transform: translateY(-5px);
+  transition: box-shadow 0.2s ease-in-out, transform 0.2s ease-in-out;
+  box-shadow: 8px -5px 13px 12px #d1d1d1;
+}
+
+@media (max-width: 760px) {
+  .card {
+    margin: 0 auto 20px auto;
+  }
+}
+
+@media (max-width: 410px) {
+  .card {
+    width: 290px !important;
+    .card_coffee {
+      height: 200px;
+      width: 220px;
+      text-align: center;
+    }
+
+    .card_title {
+      font-size: 26px;
+      line-height: 30px;
+    }
+  }
+}

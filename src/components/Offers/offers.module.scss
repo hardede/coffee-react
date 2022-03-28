@@ -1,0 +1,117 @@
+.container {
+  max-width: 1178px;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+
+.offers {
+  margin-top: 140px;
+  .container {
+    .offers_top {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 60px;
+
+      .offers_name {
+        color: #000;
+        white-space: pre-wrap;
+
+        .offers_title {
+          margin-bottom: 20px;
+          font-family: "Josefin Sans", sans-serif;
+          font-weight: 600;
+          font-size: 43px;
+          line-height: 56px;
+        }
+
+        .offers_subtitle {
+          font-size: 18px;
+          line-height: 29px;
+          opacity: 0.7;
+        }
+      }
+
+      .offers_slide {
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: space-between;
+        .search_input {
+          width: 300px;
+          padding: 10px 10px;
+          border-radius: 10px;
+          font-size: 16px;
+          font-weight: 700;
+          border: 1px solid sandybrown;
+        }
+        .search_input:focus-visible {
+          outline: none;
+          border: 2px solid rgb(230, 118, 27);
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 860px) {
+  .offers_top {
+    flex-direction: column;
+    .offers_name {
+      margin-bottom: 20px;
+      .offers_title {
+        font-size: 38px;
+        line-height: 46px;
+      }
+    }
+  }
+}
+
+@media (max-width: 760px) {
+  .offers {
+    .container {
+      .offers_top {
+        .offers_name {
+          .offers_subtitle {
+            font-size: 16px;
+            line-height: 24px;
+            opacity: 0.9;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .offers {
+    margin-top: 100px;
+    .container {
+      .offers_top {
+        .offers_name {
+          .offers_title {
+            font-size: 40px;
+            line-height: 52px;
+            opacity: 0.9;
+          }
+        }
+      }
+    }
+  }
+}
+@media (max-width: 490px) {
+  .offers {
+    .container {
+      .offers_top {
+        .offers_name {
+          .offers_title {
+            font-size: 30px;
+            line-height: 38px;
+          }
+          .offers_subtitle {
+            font-size: 15px;
+            line-height: 20px;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,157 @@
+.overlay {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba($color: #000000, $alpha: 0.5);
+  z-index: 100;
+  overflow-x: scroll;
+}
+
+.drawer {
+  position: absolute;
+  width: 400px;
+  height: 100%;
+  top: 0;
+  right: 0;
+  background-color: #fff;
+  padding: 30px;
+  overflow-x: scroll;
+
+  h2 {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .test {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+
+  .drawer_card {
+    margin-top: 40px;
+    .cart_item {
+      display: flex;
+      justify-content: space-between;
+      padding: 15px;
+      border: 1px solid rgb(236, 176, 120);
+      border-radius: 10px;
+      .cart_coffee {
+        width: 80px;
+        height: 80px;
+      }
+      div {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        .coffee_price {
+          font-weight: 700;
+        }
+      }
+      .remove_btn {
+        opacity: 0.7;
+      }
+      .remove_btn:hover {
+        opacity: 1;
+      }
+    }
+  }
+  .drawer_card:hover {
+    box-shadow: 15px 11px 20px 0px rgba($color: #000000, $alpha: 0.25);
+  }
+  .cartTotalBlock {
+    margin-top: 20px;
+    ul {
+      margin: 0 0 20px 0;
+      padding: 0;
+      font-family: "Open Sans", sans-serif;
+      font-weight: 600;
+      font-size: 20px;
+      list-style-type: none;
+      li {
+        display: flex;
+        div {
+          border-bottom: 1px dashed saddlebrown;
+          flex: 1 1;
+          height: 1px;
+          position: relative;
+          top: 22px;
+          margin: 0 15px;
+        }
+      }
+    }
+  }
+  button {
+    padding: 15px 0;
+    position: relative;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    font-family: "Josefin Sans", sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    width: 100%;
+    background-color: burlywood;
+    border: 1px solid saddlebrown;
+    border-radius: 15px;
+    opacity: 0.7;
+    transition: transform 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out;
+    img {
+      position: absolute;
+      top: 16px;
+      right: 267px;
+    }
+  }
+
+  button:hover {
+    opacity: 1;
+  }
+}
+
+.emtyCart {
+  margin-top: 50%;
+  text-align: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+
+  .cartOrder {
+    margin-bottom: 10px;
+  }
+  h3 {
+    font-weight: 700;
+    margin-top: 20px;
+  }
+  h5 {
+    opacity: 0.7;
+    margin: 30px 0;
+    font-weight: 400;
+    font-size: 18px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .drawer {
+    width: 280px;
+    padding: 15px;
+    button {
+      img {
+        right: 195px;
+      }
+    }
+    .drawer_card {
+      .cart_item {
+        padding: 10px;
+        .cart_coffee {
+          width: 50px;
+          height: 50px;
+        }
+        div {
+          font-size: 15px;
+        }
+      }
+    }
+  }
+}

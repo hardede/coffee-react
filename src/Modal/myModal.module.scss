@@ -1,0 +1,17 @@
+.post_review {
+  height: 100%;
+  width: 100%;
+  background-color:  rgba($color: #000000, $alpha: 0.4);
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  .post_modal {
+    padding: 20px;
+    border-radius: 12px;
+    background-color: white;
+  }
+}

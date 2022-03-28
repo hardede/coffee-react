@@ -1,0 +1,123 @@
+.orders {
+  background-image: url("../../../public/image/footer-bg.png");
+
+  color: #fff;
+  height: 907px;
+  font-family: "Josefin Sans", sans-serif;
+  font-weight: 600;
+  .container {
+    max-width: 1178px;
+    padding: 0 15px;
+    margin: 0 auto;
+
+    .order {
+      color: #000;
+      width: 250px !important;
+      padding: 25px;
+      margin: 18px;
+      border-radius: 25px;
+      background-color: #fff;
+      .order_title {
+        margin-top: 20px;
+        font-size: 18px;
+      }
+      .order_total {
+        margin-top: 20px;
+        display: flex;
+        justify-content: space-between;
+        font-weight: 400;
+        font-size: 18px;
+        align-items: center;
+        color: #3a2113;
+        .order_price {
+          span {
+            opacity: 0.7;
+          }
+          p {
+            margin-top: 5px;
+          }
+        }
+      }
+    }
+    .order:hover {
+      transform: translateY(-5px);
+      transition: box-shadow 0.4s ease-in-out, transform 0.4s ease-in-out;
+      box-shadow: 0px 0px 20px 6px #a19090;
+    }
+    .no_orders {
+      margin: 0 auto;
+      text-align: center;
+      p {
+        padding: 24px 0;
+        font-size: 24px;
+        line-height: 29px;
+      }
+      div {
+        padding-bottom: 20px;
+        font-size: 16px;
+        line-height: 24px;
+        font-weight: 400;
+        opacity: 0.7;
+      }
+      button {
+        padding: 15px 0;
+        border: none;
+        position: relative;
+        cursor: pointer;
+        font-family: "Josefin Sans", sans-serif;
+        font-weight: 700;
+        font-size: 16px;
+        width: 350px;
+        background-color: burlywood;
+        border: 1px solid saddlebrown;
+        border-radius: 15px;
+        opacity: 0.7;
+        transition: transform 0.2s ease-in-out,
+          -webkit-transform 0.2s ease-in-out;
+        img {
+          position: absolute;
+          top: 16px;
+          right: 267px;
+        }
+      }
+
+      button:hover {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+.orders .container {
+  padding-top: 210px;
+}
+
+@media (max-width: 760px) {
+  .orders {
+    .container {
+      .order {
+        display: block !important;
+        margin: 0px auto 18px auto;
+      }
+    }
+  }
+}
+
+@media (max-width: 490px) {
+  .orders {
+    .container {
+      .no_orders {
+        p {
+          font-size: 20px;
+          line-height: 25px;
+        }
+        button {
+          width: 290px;
+          img {
+            right: 230px;
+          }
+        }
+      }
+    }
+  }
+}
