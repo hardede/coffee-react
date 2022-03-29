@@ -140,8 +140,9 @@ img {
 
     .burger {
       width: 30px;
-      height: 23px;
+      height: 30px;
       position: relative;
+      top: 0;
       margin-right: 40px;
       cursor: pointer;
       z-index: 100;
@@ -174,7 +175,7 @@ img {
     }
     .burger.cross::before {
       transform: rotate(-135deg);
-      top: -9px;
+      top: 10px;
     }
 
     .burger.cross span {
@@ -182,7 +183,7 @@ img {
     }
     .burger.cross::after {
       transform: rotate(135deg);
-      top: -9px;
+      top: 10px;
     }
   }
 }
@@ -264,7 +265,6 @@ img {
 .slick-dots li button:before {
   color: #ff4b32 !important;
   opacity: 0.6 !important;
-
 }
 
 .slick-dots li.slick-active button:before {
@@ -309,4 +309,3 @@ img {
     }
   }
 }
-
