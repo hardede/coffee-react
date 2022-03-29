@@ -33,7 +33,7 @@ const Gallery = () => {
               <div>
                 <img
                   className={style.img_formPadding}
-                  src="./"
+                  src="image/gallery/Gallery1.png"
                   alt="gallary 1"
                 />
                 <img

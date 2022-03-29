@@ -12,7 +12,7 @@ const Info = ({ title, description, cartImg, onHandleClose }) => {
         <button className={classes.cartOrder} onClick={onHandleClose}>Страница заказов</button>
       </Link>
       <button onClick={onHandleClose}>
-        <img src="/image/arrow-left.svg" width={16} height={14} alt="arrrow" />
+        <img src="image/arrow-left.svg" width={16} height={14} alt="arrrow" />
         Вернуться назад
       </button>
     </div>

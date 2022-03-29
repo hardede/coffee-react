@@ -13,7 +13,7 @@ const Drawer = ({
 
   const [isCompleted, setIsCompleted] = useState(false);
 
-  
+
 
   const handleClickOrder = (obj) => {
     setIsCompleted(true);
@@ -73,7 +73,7 @@ const Drawer = ({
                 : "У вас пока еще нет предметов в корзине"
             }
             cartImg={
-              isCompleted ? "image/completeOrder.jpg" : "/image/emty.png"
+              isCompleted ? "image/completeOrder.jpg" : "image/emty.png"
             }
             onHandleClose={onClose}
           />
