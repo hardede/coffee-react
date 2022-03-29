@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/coffee-react/static/css/main.e253ac50.css",
-    "main.js": "/coffee-react/static/js/main.aaf6d305.js",
+    "main.css": "/coffee-react/static/css/main.c92665a8.css",
+    "main.js": "/coffee-react/static/js/main.ac88648d.js",
     "static/media/Hero-area.png": "/coffee-react/static/media/Hero-area.a4fd6445ce7722af6378.png",
     "static/media/bg-follow.png": "/coffee-react/static/media/bg-follow.80e2691da35bb8c8e98d.png",
     "static/media/footer-bg.png": "/coffee-react/static/media/footer-bg.ea61120199c066e9cd3b.png",
@@ -11,11 +11,11 @@
     "static/media/slick.woff": "/coffee-react/static/media/slick.295183786cd8a1389865.woff",
     "index.html": "/coffee-react/index.html",
     "static/media/slide-key.svg": "/coffee-react/static/media/slide-key.cc8d41afc20205105a8b.svg",
-    "main.e253ac50.css.map": "/coffee-react/static/css/main.e253ac50.css.map",
-    "main.aaf6d305.js.map": "/coffee-react/static/js/main.aaf6d305.js.map"
+    "main.c92665a8.css.map": "/coffee-react/static/css/main.c92665a8.css.map",
+    "main.ac88648d.js.map": "/coffee-react/static/js/main.ac88648d.js.map"
   },
   "entrypoints": [
-    "static/css/main.e253ac50.css",
-    "static/js/main.aaf6d305.js"
+    "static/css/main.c92665a8.css",
+    "static/js/main.ac88648d.js"
   ]
 }
