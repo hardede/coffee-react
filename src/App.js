@@ -33,8 +33,28 @@ function App() {
     localStorage.setItem("order", JSON.stringify(orders));
   }, [orders]);
 
+  useEffect(() => {
+    document.body.style.overflow = cartOpened ? "hidden" : "";
+
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [cartOpened]);
+
   const onAddToCart = (item) => {
-    setCartItems((prevItems) => [...prevItems, item]);
+    setCartItems((prevItems) => {
+      const existingItemIndex = prevItems.findIndex((cartItem) => cartItem.id === item.id);
+
+      if (existingItemIndex === -1) {
+        return [...prevItems, item];
+      }
+
+      return prevItems.map((cartItem, index) =>
+        index === existingItemIndex
+          ? { ...cartItem, counter: Math.min(cartItem.counter + item.counter, 99) }
+          : cartItem
+      );
+    });
   };
 
   const onAddToOrders = (items) => {

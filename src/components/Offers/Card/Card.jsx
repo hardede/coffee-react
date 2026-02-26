@@ -8,7 +8,6 @@ const Card = ({ id, name, price, imgUrl, onPlus }) => {
 
   const handleClickCart = () => {
     onPlus({ id, name, price, imgUrl, counter });
-    setCounter(1);
   };
 
   return (

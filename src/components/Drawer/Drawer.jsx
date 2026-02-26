@@ -15,11 +15,11 @@ const Drawer = ({ onClose, items = [], onDelete, onAddOrder }) => {
 
   return (
     <div className="fixed inset-0 z-50 bg-black/40" onClick={onClose}>
-      <div className="ml-auto h-full w-full max-w-md bg-white p-6" onClick={(e) => e.stopPropagation()}>
+      <div className="ml-auto flex h-full w-full max-w-md flex-col bg-white p-6" onClick={(e) => e.stopPropagation()}>
         <h2 className="mb-4 flex items-center justify-between text-2xl font-bold">Корзина <img src="image/btn-remove.svg" alt="remove" onClick={onClose} /></h2>
         {items.length > 0 ? (
           <>
-            <div className="space-y-3">
+            <div className="flex-1 space-y-3 overflow-y-auto pr-1">
               {items.map((item, index) => (
                 <div className="flex items-center gap-3 rounded border p-3" key={`${item.id}-${index}`}>
                   <img className="h-16 w-16 object-cover" src={item.imgUrl} alt={item.name} />
