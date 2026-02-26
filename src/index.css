@@ -1,0 +1,14 @@
+* { box-sizing: border-box; }
+body { margin: 0; font-family: 'Open Sans', sans-serif; background: #fff; color: #1f2937; }
+img { max-width: 100%; }
+
+.show-enter { opacity: 0; }
+.show-enter-active { opacity: 1; transition: opacity 300ms; }
+.show-exit { opacity: 1; }
+.show-exit-active { opacity: 0; transition: opacity 300ms; }
+
+.slick-arrow { background: url("../public/image/slide-key.svg") !important; background-repeat: no-repeat !important; opacity: .7 !important; }
+.slick-arrow:hover { opacity: 1 !important; }
+.slick-prev { width: 46px !important; height: 49px !important; transform: rotate(180deg) !important; }
+.slick-next { width: 46px !important; height: 49px !important; }
+.slick-next:before,.slick-prev:before { opacity: 0 !important; }

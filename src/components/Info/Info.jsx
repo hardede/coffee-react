@@ -1,20 +1,12 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import classes from "../Drawer/drawer.module.scss";
 
 const Info = ({ title, description, cartImg, onHandleClose }) => {
   return (
-    <div className={classes.emtyCart}>
-      <img src={cartImg} width={120} height={120} alt="emtyCart" />
-      <h3>{title}</h3>
-      <h5>{description}</h5>
-      <Link to="/orders">
-        <button className={classes.cartOrder} onClick={onHandleClose}>Страница заказов</button>
-      </Link>
-      <button onClick={onHandleClose}>
-        <img src="image/arrow-left.svg" width={16} height={14} alt="arrrow" />
-        Вернуться назад
-      </button>
+    <div className="flex h-full flex-col items-center justify-center gap-3 text-center">
+      <img src={cartImg} width={120} alt="status" />
+      <h3 className="text-xl font-bold">{title}</h3>
+      <p className="text-sm text-gray-600">{description}</p>
+      <button className="mt-3 rounded bg-[#ff4b32] px-4 py-2 text-white" onClick={onHandleClose}>Вернуться назад</button>
     </div>
   );
 };

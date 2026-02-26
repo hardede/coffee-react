@@ -1,30 +1,14 @@
 import React from "react";
-import { Link } from "react-scroll";
-import style from "./hero.module.scss";
 
 const Hero = () => {
   return (
-    <div className={style.hero} id="hero">
-      <div className={style.container}>
-        <div className={style.hero_info}>
-          <h1 className={style.hero_title}>
-            {"Keep your dreams \naroused with a cup \nof coffee."}
-          </h1>
-          <p className={style.hero_subtitle}>
-            {"The coffee ideas shared by these generators are not \ncool at all, as they are not a human being."}
-          </p>
-          <Link
-            className={style.hero_btn}
-            to="offers"
-            smooth={true}
-            offset={-140}
-            duration={1000}
-          >
-            Buy Now
-          </Link>
-        </div>
+    <section id="hero" className="relative min-h-[720px] bg-[#1e120d] bg-cover bg-center px-4 pt-36 text-white" style={{ backgroundImage: "url('image/Hero-area.png')" }}>
+      <div className="mx-auto max-w-6xl">
+        <h1 className="max-w-xl text-4xl font-bold leading-tight md:text-6xl">Keep your dreams aroused with a cup of coffee.</h1>
+        <p className="mt-6 max-w-xl text-white/80">The coffee ideas shared by these generators are not cool at all.</p>
+        <button className="mt-8 rounded bg-[#ff4b32] px-6 py-3 font-semibold">Buy now</button>
       </div>
-    </div>
+    </section>
   );
 };
 

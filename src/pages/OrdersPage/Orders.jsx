@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Slider from "react-slick/lib/slider";
 import AppContext from "../../context";
-import cl from "./orders.module.scss";
 
 const Orders = () => {
   const { orders = [] } = React.useContext(AppContext);
@@ -13,81 +12,41 @@ const Orders = () => {
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 1,
-    initialSlide: 0,
     swipeToSlide: true,
-    arrows: true,
     responsive: [
-      {
-        breakpoint: 1200,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1,
-          infinite: true,
-          arrows: false,
-          dots: true,
-        },
-      },
-      {
-        breakpoint: 760,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          infinite: true,
-          arrows: false,
-          dots: true,
-        },
-      },
+      { breakpoint: 1200, settings: { slidesToShow: 2, arrows: false, dots: true } },
+      { breakpoint: 760, settings: { slidesToShow: 1, arrows: false, dots: true } },
     ],
   };
 
   return (
-    <div className={cl.orders}>
-      <div className={cl.container}>
-        <div>
-          {orders.length > 0 ? (
-            <Slider {...settings}>
-              {orders.map((order, index) => (
-                <div className={cl.order} key={index}>
-                    <img
-                      src={order.imgUrl}
-                      width={200}
-                      height={200}
-                      alt="coffee"
-                    />
-                    <h5 className={cl.order_title}>{order.name}</h5>
-                    <div className={cl.order_total}>
-                      <div className={cl.order_price}>
-                        <span>Цена:</span>
-                        <p>$ {order.price}</p>
-                      </div>
-                      <div className={cl.order_count}>
-                        Количество: {order.counter}
-                      </div>
-                    </div>
-                </div>
-              ))}
-            </Slider>
-          ) : (
-            <div className={cl.no_orders}>
-              <img src="image/sad_smile.svg" alt="sad" />
-              <p>У вас пока еще нет заказов</p>
-              <div>Оформите хотя бы один заказ.</div>
-              <Link to="/home">
-                <button>
-                  <img
-                    src="image/arrow-left.svg"
-                    width={16}
-                    height={14}
-                    alt="arrrow"
-                  />
-                  Вернуться назад
-                </button>
-              </Link>
-            </div>
-          )}
-        </div>
+    <section className="px-4 pb-20 pt-32">
+      <div className="mx-auto max-w-6xl">
+        {orders.length > 0 ? (
+          <Slider {...settings}>
+            {orders.map((order, index) => (
+              <div className="px-2" key={index}>
+                <article className="rounded-xl border p-4 text-center">
+                  <img src={order.imgUrl} width={200} height={200} alt="coffee" className="mx-auto" />
+                  <h5 className="mt-3 text-lg font-semibold">{order.name}</h5>
+                  <div className="mt-3 space-y-1 text-sm">
+                    <p><span className="font-semibold">Цена:</span> $ {order.price}</p>
+                    <p>Количество: {order.counter}</p>
+                  </div>
+                </article>
+              </div>
+            ))}
+          </Slider>
+        ) : (
+          <div className="mx-auto max-w-md text-center">
+            <img src="image/sad_smile.svg" alt="sad" className="mx-auto" />
+            <p className="mt-4 text-lg font-semibold">У вас пока еще нет заказов</p>
+            <div className="mt-1 text-gray-600">Оформите хотя бы один заказ.</div>
+            <Link to="/home"><button className="mt-6 rounded bg-[#ff4b32] px-4 py-2 text-white">Вернуться назад</button></Link>
+          </div>
+        )}
       </div>
-    </div>
+    </section>
   );
 };
 

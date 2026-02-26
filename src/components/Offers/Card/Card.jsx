@@ -1,17 +1,10 @@
 import React, { useState } from "react";
-import style from "./card.module.scss";
 
 const Card = ({ id, name, price, imgUrl, onPlus }) => {
   const [counter, setCounter] = useState(1);
 
-  const increment = () => {
-    setCounter((prev) => Math.min(prev + 1, 9));
-  };
-
-  const decrement = () => {
-    setCounter((prev) => Math.max(prev - 1, 1));
-  };
-
+  const increment = () => setCounter((prev) => Math.min(prev + 1, 9));
+  const decrement = () => setCounter((prev) => Math.max(prev - 1, 1));
 
   const handleClickCart = () => {
     onPlus({ id, name, price, imgUrl, counter });
@@ -19,26 +12,18 @@ const Card = ({ id, name, price, imgUrl, onPlus }) => {
   };
 
   return (
-    <div className={style.card}>
-      <img className={style.card_coffee} src={imgUrl} alt="coffee1" />
-      <div className={style.card_price}>$ {price}</div>
-      <div className={style.card_title}>{name}</div>
-      <p className={style.card_subtitle}>
-        Coffee that&rsquo;s always you handle your own the way you like.
-      </p>
-      <div className={style.card_counter}>
-        <div className={style.card_num}>
-          <p className={style.card_number}>{counter}</p>
-          <button className={style.card_increase} onClick={increment}>
-            <img src="image/plus.svg" alt="plus" />
-          </button>
-          <button className={style.card_decrease} onClick={decrement}>
-            <img src="image/minus.svg" alt="minus" />
-          </button>
+    <div className="rounded-xl border bg-white p-4 shadow-sm">
+      <img className="mx-auto h-44 object-contain" src={imgUrl} alt={name} />
+      <div className="mt-3 text-xl font-bold">$ {price}</div>
+      <div className="mt-1 font-semibold">{name}</div>
+      <p className="mt-2 text-sm text-gray-600">Coffee that’s always the way you like.</p>
+      <div className="mt-4 flex items-center justify-between">
+        <div className="flex items-center gap-2">
+          <button className="rounded border px-2" onClick={decrement}>-</button>
+          <span>{counter}</span>
+          <button className="rounded border px-2" onClick={increment}>+</button>
         </div>
-        <button className={style.card_button} onClick={handleClickCart}>
-          Add To Cart
-        </button>
+        <button className="rounded bg-[#ff4b32] px-4 py-2 text-white" onClick={handleClickCart}>Add To Cart</button>
       </div>
     </div>
   );

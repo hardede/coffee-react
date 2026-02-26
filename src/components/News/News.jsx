@@ -1,90 +1,37 @@
 import React, { useState } from "react";
-import NewsCard from "./NewsCard/NewsCard";
-import style from "./news.module.scss";
 import Slider from "react-slick/lib/slider";
+import NewsCard from "./NewsCard/NewsCard";
 
 const News = () => {
-  const [newsItems, setNewsItems] = useState([
-    {
-      id: 0,
-      title: "Coffe beans",
-      subtitle:
-        "These advertising mottos are targeted to the 56% of coffee drinking consumers.",
-      imgUrl: "image/news/news1.png",
-    },
-    {
-      id: 1,
-      title: "Coffe beans",
-      subtitle:
-        "These advertising mottos are targeted to the 56% of coffee drinking consumers.",
-      imgUrl: "image/news/news2.png",
-    },
-    {
-      id: 2,
-      title: "Coffe beans",
-      subtitle:
-        "These advertising mottos are targeted to the 56% of coffee drinking consumers.",
-      imgUrl: "image/news/news3.png",
-    },
+  const [newsItems] = useState([
+    { id: 0, title: "Coffee beans", subtitle: "These advertising mottos are targeted to the coffee drinking consumers.", imgUrl: "image/news/news1.png" },
+    { id: 1, title: "Coffee beans", subtitle: "These advertising mottos are targeted to the coffee drinking consumers.", imgUrl: "image/news/news2.png" },
+    { id: 2, title: "Coffee beans", subtitle: "These advertising mottos are targeted to the coffee drinking consumers.", imgUrl: "image/news/news3.png" },
   ]);
 
-  var settings = {
+  const settings = {
     dots: false,
     infinite: false,
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 1,
-    initialSlide: 0,
     swipeToSlide: true,
-    arrows: true,
     responsive: [
-      {
-        breakpoint: 1200,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1,
-          infinite: true,
-          arrows: false,
-          dots: true,
-        },
-      },
-      {
-        breakpoint: 760,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          infinite: true,
-          arrows: false,
-          dots: true,
-        },
-      },
+      { breakpoint: 1200, settings: { slidesToShow: 2, arrows: false, dots: true } },
+      { breakpoint: 760, settings: { slidesToShow: 1, arrows: false, dots: true } },
     ],
   };
 
   return (
-    <div className={style.news} id="news">
-      <div className={style.container}>
-        <div className={style.news_top}>
-          <h2 className={style.news_title}>Update News</h2>
-          <p className={style.news_subtitle}>
-            {
-              "A cup ofbrewed coffee represents acontribution of up to 1.8 grams of \nfiber ofthe recommended."
-            }
-          </p>
+    <section id="news" className="bg-[#fff6f2] px-4 py-16">
+      <div className="mx-auto max-w-6xl">
+        <div className="mb-8 text-center">
+          <h2 className="text-3xl font-bold">Update News</h2>
+          <p className="mt-2 text-gray-600">A cup of brewed coffee contributes up to 1.8 grams of fiber.</p>
         </div>
-        <Slider {...settings}>
-          {newsItems.map((item, index) => (
-            <NewsCard
-              key={index}
-              id={item.id}
-              title={item.title}
-              subtitle={item.subtitle}
-              imgUrl={item.imgUrl}
-            />
-          ))}
-        </Slider>
+        <Slider {...settings}>{newsItems.map((item) => <NewsCard key={item.id} {...item} />)}</Slider>
       </div>
-    </div>
+    </section>
   );
 };
 

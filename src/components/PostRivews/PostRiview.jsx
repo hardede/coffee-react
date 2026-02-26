@@ -1,66 +1,19 @@
 import React from "react";
-import style from "./postRiview.module.scss";
 
-const PostRiview = ({
-  newReviews,
-  setNewReviews,
-  clickReview,
-  usernameHandler,
-  bodyHandler,
-  blurHandler,
-  username,
-  body,
-  usernameDirty,
-  usernameError,
-  bodyError,
-  bodyDirty,
-  formValid
-}) => {
+const PostRiview = ({ clickReview, usernameHandler, bodyHandler, blurHandler, usernameDirty, usernameError, bodyDirty, bodyError, formValid, newReviews }) => {
   return (
-    <div>
-      <form className={style.review_form}>
-        <label className={style.review_userName} htmlFor="name">
-          Username
-        </label>
-        {usernameDirty && usernameError && (
-          <div className={style.input_error}>{usernameError}</div>
-        )}
-        <input
-          value={username}
-          name="username"
-          type="text"
-          id="name"
-          className={style.userName_input}
-          placeholder="Your Username..."
-          onChange={(e) => usernameHandler(e)}
-          onBlur={(e) => blurHandler(e)}
-        />
-        <label className={style.review_userName} htmlFor="body">
-          Review
-        </label>
-        {bodyDirty && bodyError && (
-          <div className={style.input_error}>{bodyError}</div>
-        )}
-        <textarea
-          value={body}
-          name="body"
-          rows={12}
-          type="text"
-          id="body"
-          className={style.review_input}
-          placeholder="Your Review..."
-          onChange={(e) => bodyHandler(e)}
-          onBlur={(e) => blurHandler(e)}
-        />
-      </form>
-      <button
-        disabled={!formValid}
-        className={style.review_button}
-        onClick={clickReview}
-      >
-        Опубликовать отзыв
-      </button>
-    </div>
+    <form className="space-y-4" onSubmit={clickReview}>
+      <h3 className="text-2xl font-bold">Добавить отзыв</h3>
+      <div>
+        <input className="w-full rounded border p-3" name="username" value={newReviews.name} onChange={usernameHandler} onBlur={blurHandler} placeholder="Ваше имя" />
+        {usernameDirty && usernameError && <p className="mt-1 text-sm text-red-500">{usernameError}</p>}
+      </div>
+      <div>
+        <textarea className="h-32 w-full rounded border p-3" name="body" value={newReviews.body} onChange={bodyHandler} onBlur={blurHandler} placeholder="Ваш отзыв" />
+        {bodyDirty && bodyError && <p className="mt-1 text-sm text-red-500">{bodyError}</p>}
+      </div>
+      <button disabled={!formValid} className="rounded bg-[#ff4b32] px-5 py-2 text-white disabled:opacity-50">Отправить</button>
+    </form>
   );
 };
 

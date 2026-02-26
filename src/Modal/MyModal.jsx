@@ -1,14 +1,13 @@
-import React from 'react'
-import style from './myModal.module.scss'
+import React from "react";
 
-const MyModal = ({onClose, children}) => {
+const MyModal = ({ onClose, children }) => {
   return (
-    <div className={style.post_review} onClick={onClose}>
-      <div className={style.post_modal} onClick={(e) => e.stopPropagation()}>
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4" onClick={onClose}>
+      <div className="w-full max-w-xl rounded bg-white p-6" onClick={(e) => e.stopPropagation()}>
         {children}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default MyModal
+export default MyModal;

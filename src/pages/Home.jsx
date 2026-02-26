@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Follow from "../components/Follow/Follow";
 import Footer from "../components/Footer/Footer";
 import Gallery from "../components/Gallery/Gallery";
@@ -8,7 +8,7 @@ import Offers from "../components/Offers/Offers";
 import AppContext from "../context";
 
 function Home() {
-  const [items, setItems] = useState([
+  const items = [
     {
       id: 0,
       name: "Brazilian coffe beans",
@@ -39,7 +39,7 @@ function Home() {
       price: 3.99,
       imgUrl: "image/coffee/coffee3.png",
     },
-  ]);
+  ];
 
   const { onAddToCart } = React.useContext(AppContext);
 
