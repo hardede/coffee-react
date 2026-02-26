@@ -38,7 +38,14 @@ const Drawer = ({ onClose, items = [], onDelete, onAddOrder }) => {
             </div>
           </>
         ) : (
-          <Info title={isCompleted ? "Ваш заказ принят" : "Корзина пустая"} description={isCompleted ? "Заказ уже в обработке" : "У вас пока еще нет предметов в корзине"} cartImg={isCompleted ? "image/completeOrder.jpg" : "image/emty.png"} onHandleClose={onClose} />
+          <Info
+            title={isCompleted ? "Ваш заказ принят" : "Корзина пустая"}
+            description={isCompleted ? "Заказ уже в обработке" : "У вас пока еще нет предметов в корзине"}
+            cartImg={isCompleted ? "image/completeOrder.jpg" : "image/emty.png"}
+            onHandleClose={onClose}
+            actionLink={isCompleted ? "/orders" : null}
+            actionText={isCompleted ? "Посмотреть заказы" : null}
+          />
         )}
       </div>
     </div>
