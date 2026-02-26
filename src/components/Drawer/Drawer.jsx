@@ -3,40 +3,32 @@ import useCard from "../../hooks/useCard";
 import Info from "../Info/Info";
 import style from "./drawer.module.scss";
 
-const Drawer = ({
-  onClose,
-  items = [],
-  onDelete,
-  onAddOrder,
-}) => {
+const Drawer = ({ onClose, items = [], onDelete, onAddOrder }) => {
   const { setCartItems, totalPrice } = useCard();
-
   const [isCompleted, setIsCompleted] = useState(false);
 
+  const handleClickOrder = () => {
+    if (items.length === 0) {
+      return;
+    }
 
-
-  const handleClickOrder = (obj) => {
     setIsCompleted(true);
     setCartItems([]);
-    onAddOrder( items );
+    onAddOrder(items);
   };
+
   return (
     <div className={style.overlay} onClick={onClose}>
       <div className={style.drawer} onClick={(e) => e.stopPropagation()}>
         <h2>
-          Корзина{" "}
-          <img src="image/btn-remove.svg" alt="remove" onClick={onClose} />
+          Корзина <img src="image/btn-remove.svg" alt="remove" onClick={onClose} />
         </h2>
         {items.length > 0 ? (
           <div>
-            {items.map((item) => (
-              <div className={style.drawer_card} key={item.id}>
+            {items.map((item, index) => (
+              <div className={style.drawer_card} key={`${item.id}-${index}`}>
                 <div className={style.cart_item}>
-                  <img
-                    className={style.cart_coffee}
-                    src={item.imgUrl}
-                    alt="Brazillian"
-                  />
+                  <img className={style.cart_coffee} src={item.imgUrl} alt="Brazillian" />
                   <div>
                     <p className={style.coffee_name}>{item.name}</p>
                     <p>В количестве {item.counter}</p>
@@ -46,7 +38,7 @@ const Drawer = ({
                     className={style.remove_btn}
                     src="image/btn-remove.svg"
                     alt="remove"
-                    onClick={() => onDelete(item)}
+                    onClick={() => onDelete(index)}
                   />
                 </div>
               </div>
@@ -59,9 +51,7 @@ const Drawer = ({
                   <p className={style.price}>$ {totalPrice}</p>
                 </li>
               </ul>
-              <button onClick={handleClickOrder}>
-                Оформить заказ
-              </button>
+              <button onClick={handleClickOrder}>Оформить заказ</button>
             </div>
           </div>
         ) : (
@@ -72,9 +62,7 @@ const Drawer = ({
                 ? "Заказ № уже в обработке"
                 : "У вас пока еще нет предметов в корзине"
             }
-            cartImg={
-              isCompleted ? "image/completeOrder.jpg" : "image/emty.png"
-            }
+            cartImg={isCompleted ? "image/completeOrder.jpg" : "image/emty.png"}
             onHandleClose={onClose}
           />
         )}

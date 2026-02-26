@@ -5,20 +5,15 @@ const Card = ({ id, name, price, imgUrl, onPlus }) => {
   const [counter, setCounter] = useState(1);
 
   const increment = () => {
-    setCounter(counter + 1);
-  };
-  const decrement = () => {
-    setCounter(counter - 1);
+    setCounter((prev) => Math.min(prev + 1, 9));
   };
 
-  if (counter <= 0) {
-    setCounter(1);
-  } else if (counter >= 10) {
-    setCounter(9);
-  }
+  const decrement = () => {
+    setCounter((prev) => Math.max(prev - 1, 1));
+  };
+
 
   const handleClickCart = () => {
-
     onPlus({ id, name, price, imgUrl, counter });
     setCounter(1);
   };

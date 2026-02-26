@@ -2,14 +2,12 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Slider from "react-slick/lib/slider";
 import AppContext from "../../context";
-import useCard from "../../hooks/useCard";
 import cl from "./orders.module.scss";
 
 const Orders = () => {
   const { orders = [] } = React.useContext(AppContext);
-  const { ordersPrice } = useCard();
 
-  var settings = {
+  const settings = {
     dots: false,
     infinite: false,
     speed: 500,
@@ -42,16 +40,14 @@ const Orders = () => {
     ],
   };
 
-  console.log(orders);
   return (
     <div className={cl.orders}>
       <div className={cl.container}>
         <div>
           {orders.length > 0 ? (
             <Slider {...settings}>
-
-                {orders.map((order, index) => (
-                  <div className={cl.order} key={index}>
+              {orders.map((order, index) => (
+                <div className={cl.order} key={index}>
                     <img
                       src={order.imgUrl}
                       width={200}
@@ -68,8 +64,8 @@ const Orders = () => {
                         Количество: {order.counter}
                       </div>
                     </div>
-                  </div>
-                ))}
+                </div>
+              ))}
             </Slider>
           ) : (
             <div className={cl.no_orders}>
