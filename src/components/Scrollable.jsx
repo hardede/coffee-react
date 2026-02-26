@@ -1,7 +1,7 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 
 const Scrollable = (props) => {
-  let ref = useRef();
+  const ref = useRef();
   const [state, setState] = useState({
     isScrolling: false,
     clientX: 0,
@@ -10,61 +10,69 @@ const Scrollable = (props) => {
 
   useEffect(() => {
     const el = ref.current;
-    if (el) {
-      const onWheel = (e) => {
-        e.preventDefault();
-        el.scrollTo({
-          left: el.scrollLeft + e.deltaY,
-          behavior: "smooth",
-        });
-      };
-      el.addEventListener("wheel", onWheel);
-      console.log("12313");
-      return () => el.removeEventListener("wheel", onWheel);
+
+    if (!el) {
+      return undefined;
     }
+
+    const onWheel = (e) => {
+      e.preventDefault();
+      el.scrollTo({
+        left: el.scrollLeft + e.deltaY,
+        behavior: "smooth",
+      });
+    };
+
+    el.addEventListener("wheel", onWheel);
+
+    return () => el.removeEventListener("wheel", onWheel);
   }, []);
 
-  const onMouseMove = (e) => {
-    if (ref && ref.current && !ref.current.contains(e.target)) {
+  const onMouseMove = useCallback((e) => {
+    setState((prevState) => {
+      if (!prevState.isScrolling || !ref.current?.contains(e.target)) {
+        return prevState;
+      }
+
+      e.preventDefault();
+
+      const nextScrollX = prevState.scrollX + e.clientX - prevState.clientX;
+      ref.current.scrollLeft = nextScrollX;
+
+      return {
+        ...prevState,
+        scrollX: nextScrollX,
+        clientX: e.clientX,
+      };
+    });
+  }, []);
+
+  const onMouseUp = useCallback((e) => {
+    if (ref.current && !ref.current.contains(e.target)) {
       return;
     }
+
     e.preventDefault();
-
-    const { clientX, scrollX, isScrolling } = state;
-
-    if (isScrolling) {
-      ref.current.scrollLeft = scrollX + e.clientX - clientX;
-      let sX = scrollX + e.clientX - clientX;
-      let cX = e.clientX;
-
-      setState({
-        ...state,
-        scrollX: sX,
-        clientX: cX,
-      });
-    }
-  };
-  const onMouseUp = (e) => {
-    if (ref && ref.current && !ref.current.contains(e.target)) {
-      return;
-    }
-    e.preventDefault();
-    setState({
-      ...state,
+    setState((prevState) => ({
+      ...prevState,
       isScrolling: false,
-    });
-  };
-  const onMouseDown = (e) => {
-    if (ref && ref.current && !ref.current.contains(e.target)) {
+    }));
+  }, []);
+
+  const onMouseDown = useCallback((e) => {
+    if (ref.current && !ref.current.contains(e.target)) {
       return;
     }
+
     e.preventDefault();
-    setState({
-      ...state,
+
+    setState((prevState) => ({
+      ...prevState,
       isScrolling: true,
-      clientX: e.scrollX,
-    });
-  };
+      clientX: e.clientX,
+      scrollX: ref.current?.scrollLeft || 0,
+    }));
+  }, []);
 
   useEffect(() => {
     document.addEventListener("mousedown", onMouseDown);
@@ -76,7 +84,7 @@ const Scrollable = (props) => {
       document.removeEventListener("mouseup", onMouseUp);
       document.removeEventListener("mousemove", onMouseMove);
     };
-  });
+  }, [onMouseDown, onMouseMove, onMouseUp]);
 
   return (
     <div

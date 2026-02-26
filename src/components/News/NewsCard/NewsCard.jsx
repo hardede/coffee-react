@@ -1,21 +1,13 @@
 import React from "react";
-import style from './newsCard.module.scss'
 
-const NewsCard = ({id, title, subtitle, imgUrl}) => {
-  return (
-    <div className={style.information_card}>
-      <img src={imgUrl} alt="news1" />
-      <div className={style.card_info}>
-        <h3>{title}</h3>
-        <p>
-          {subtitle}
-        </p>
-        <button className={style.btn_reset}>
-          Learn More <img src="image/arrow.svg" alt="arrow" />
-        </button>
-      </div>
-    </div>
-  );
-};
+const NewsCard = ({ title, subtitle, imgUrl }) => (
+  <div className="px-2">
+    <article className="rounded-xl bg-white p-4 shadow">
+      <img className="mb-4 w-full rounded-lg" src={imgUrl} alt={title} />
+      <h4 className="text-xl font-semibold">{title}</h4>
+      <p className="mt-2 text-sm text-gray-600">{subtitle}</p>
+    </article>
+  </div>
+);
 
 export default NewsCard;

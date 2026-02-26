@@ -1,61 +1,17 @@
 import React from "react";
-import style from './follow.module.scss'
 
-const Follow = () => {
-  return (
-    <div className={style.follow} id="contact">
-      <div className={style.container}>
-        <div className={style.follow_us}>
-          <p className={style.upper_title}>Follow US</p>
-        </div>
-        <h2 className={style.follow_title}>
-          {"Have an inquiry? \nText or call and ask Something."}
-        </h2>
-        <div className={style.follow_contacts}>
-          <img src="image/Telephone.svg" alt="phone" />
-          <p>+8801742-527137</p>
-        </div>
-        <div className={style.follow_contacts}>
-          <img src="image/gmail.svg" alt="email" />
-          <p>mdmaksedur17@gmail.com</p>
-        </div>
-        <div className={style.follow_list}>
-          <a
-            href="https://twitter.com/Starbucks"
-            className={style.follow_social}
-            target="_blank"
-            rel="noreferrer"
-          >
-            <img src="image/twitter.svg" alt="twitter" />
-          </a>
-          <a
-            href="https://www.facebook.com/maythecoffeebewithyou"
-            className={style.follow_social}
-            target="_blank"
-            rel="noreferrer"
-          >
-            <img src="image/facebook.svg" alt="facebook" />
-          </a>
-          <a
-            href="https://www.instagram.com/thegustocoffee/"
-            className={style.follow_social}
-            target="_blank"
-            rel="noreferrer"
-          >
-            <img src="image/inst.svg" alt="inst" />
-          </a>
-          <a
-            href="https://www.linkedin.com/"
-            className={style.follow_social}
-            target="_blank"
-            rel="noreferrer"
-          >
-            <img src="image/link.svg" alt="link" />
-          </a>
-        </div>
+const Follow = () => (
+  <section className="bg-[#fff6f2] px-4 py-16 text-center">
+    <div className="mx-auto max-w-3xl">
+      <h2 className="text-3xl font-bold">Follow us for coffee updates</h2>
+      <p className="mt-3 text-gray-600">Join our social media and keep in touch with the latest coffee stories.</p>
+      <div className="mt-6 flex justify-center gap-4">
+        <img src="image/footer-facebook.svg" alt="facebook" />
+        <img src="image/footer-inst.svg" alt="instagram" />
+        <img src="image/footer-link.svg" alt="linkedin" />
       </div>
     </div>
-  );
-};
+  </section>
+);
 
 export default Follow;

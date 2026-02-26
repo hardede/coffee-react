@@ -3,21 +3,20 @@ import AppContext from "../context";
 
 const useCard = () => {
   const { cartItems, setCartItems, orders } = useContext(AppContext);
-  const cardPrice =
-    Math.floor(
-      cartItems.reduce((sum, item) => item.price * item.counter, 0) *
-        Math.pow(10, 2)
-    ) / Math.pow(10, 2);
-  const ordersPrice =
-    Math.floor(
-      orders.reduce((sum, item) => item.price * item.counter, 0) *
-        Math.pow(10, 2)
-    ) / Math.pow(10, 2);
-  const totalPrice =
-    Math.floor(
-      cartItems.reduce((sum, item) => item.price * item.counter + sum, 0) *
-        Math.pow(10, 2)
-    ) / Math.pow(10, 2);
+
+  const roundPrice = (value) => Math.floor(value * 100) / 100;
+
+  const cardPrice = roundPrice(
+    cartItems.reduce((sum, item) => sum + item.price * item.counter, 0)
+  );
+
+  const ordersPrice = roundPrice(
+    orders.reduce((sum, item) => sum + item.price * item.counter, 0)
+  );
+
+  const totalPrice = roundPrice(
+    cartItems.reduce((sum, item) => sum + item.price * item.counter, 0)
+  );
 
   return { cartItems, setCartItems, totalPrice, cardPrice, ordersPrice };
 };
